@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data noupdate="1">
+
+    <record id="debts_limit_exceeded" model="sale.exception">
+      <field name="name">Limite de Deudas Excedido</field>
+      <field name="description">El cliente posee deudas pendientes</field>
+      <field name="sequence">12</field>
+      <field name="model">sale.order</field>
+      <field name="code">if not object.debts_credit_limit_ok():
+        failed = True</field>
+      <field name="active" eval="True"/>
+    </record>
+
+  </data>
+</openerp>
