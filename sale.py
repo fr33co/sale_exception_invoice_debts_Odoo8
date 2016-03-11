@@ -13,7 +13,7 @@ class sale_order(models.Model):
 
         now = fields.Date.today()
         domain = [
-            ('partner_id', '=', self.partner_id.id), ('state', '=', 'paid'),
+            ('partner_id', '=', self.partner_id.id),
             ('date_due', '>=', now), ('residual', '>', 0),
             ('type', '=', 'out_invoice')]
 
