@@ -14,7 +14,9 @@ class sale_order(models.Model):
         now = fields.Date.today()
         domain = [
             ('partner_id', '=', self.partner_id.id), ('state', '=', 'paid'),
-            ('date_due', '>=', now,)]
+            ('date_due', '>=', now), ('residual', '>', 0),
+            ('type', '=', 'out_invoice')]
+
         debts_invoices = self.env['account.invoice'].search(domain)
         available_debts = self.partner_id.credit
 
