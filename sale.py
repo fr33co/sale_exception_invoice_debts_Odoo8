@@ -19,6 +19,6 @@ class sale_order(models.Model):
         available_debts = self.partner_id.credit
 
         if debts_invoices:
-            available_debts > 0:
+            if available_debts > 0:
                 return False
         return True
